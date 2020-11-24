@@ -33,13 +33,19 @@ function renderItem(parent, key, value, level) {
 
         } else if (typeof value == 'object') {
 
-            const section = el.create(level == 0 ? 'section' : 'div', {});
-            el.append(parent, section);
+            let p = parent;
+            if (level == 1) {
+                p = el.create('section', {});
+                el.append(parent, [ el.create('a', {name: key}, "boom"), p]);
+            } else if (level > 1) {
+                p = el.create('div', {});
+                el.append(parent, p);
+            }
 
             for (const k in value) {
                 if (value.hasOwnProperty(k)) {
                     if (k.startsWith('#')) continue;
-                    renderItem(section, k, value[k], level + 1);
+                    renderItem(p, k, value[k], level + 1);
                 }
             }
 
