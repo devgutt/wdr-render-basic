@@ -11,7 +11,9 @@ function render(data) {
         el.create('title', {}, (data['#info'] && data['#info'].title) || (data['title']))
     ]);
 
-    renderItem(document.body, '', data, 0);
+    const main = el.create('main', {});
+    el.append(document.body, main);
+    renderItem(main, '', data, 0);
 }
 
 function renderItem(parent, key, value, level) {
@@ -23,7 +25,7 @@ function renderItem(parent, key, value, level) {
 
             value.forEach(v => {
                 if (typeof v == 'object') {
-                    const sectionItem = el.create('div', {class: "array-item"});
+                    const sectionItem = el.create('div', {class: "highlight"});
                     el.append(section, sectionItem);
                     renderItem(sectionItem, '', v, level);
                 } else {
@@ -36,7 +38,7 @@ function renderItem(parent, key, value, level) {
             let p = parent;
             if (level == 1) {
                 p = el.create('section', {});
-                el.append(parent, [ el.create('a', {name: key}, "boom"), p]);
+                el.append(parent, [ el.create('a', {name: key}, ""), p]);
             } else if (level > 1) {
                 p = el.create('div', {});
                 el.append(parent, p);
@@ -52,11 +54,11 @@ function renderItem(parent, key, value, level) {
         } else {
 
             if (key == 'title') {
-                el.append(parent, el.create(`h${level < 6 ? level+1 : '6'}`, {innerHTML: textFormatting(value)}));
+                el.append(parent, el.create(`h${level < 6 ? level : '6'}`, {innerHTML: textFormatting(value)}));
             } else if (key == 'img') {
                 el.append(parent, el.create('img', {src: value}));
             } else if (key == 'code') {
-                el.append(parent, el.create('pre', {}, value));
+                el.append(parent, el.create('pre', {class: "highlight"}, value));
             } else {
                 el.append(parent, el.create('p', {innerHTML: textFormatting(value + "")}));
             }

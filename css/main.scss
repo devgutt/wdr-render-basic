@@ -1,10 +1,89 @@
-$colorBackground: papayawhip;
+$fontFamily: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+$fontSize: 18px;
+$fontColor: #1A202C;
+$linkColor: #3c4fe0;
+$backColor: #ffffff;
+$backItem: rgba(0,0,0,0.05);
+$maxWidth: 800px;
 
-body {
-    background-color: $colorBackground;
+html {
+	box-sizing: border-box;
 }
-
-.array-item {
-    background-color: #eee;
-    padding: 4px;
+html, body {
+	margin: 0;
+	padding: 0;
+}
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+html {
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+	text-size-adjust: 100%;
+}
+body {
+    font-size: $fontSize;
+    color: $fontColor;
+	font-weight: 400;
+	background-color: $backColor;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+    text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+body, button, input, select, textarea {
+	font-family: $fontFamily;
+}
+code, pre {
+	-moz-osx-font-smoothing: auto;
+	-webkit-font-smoothing: auto;
+	font-family: monospace;
+}
+a {
+    color: $linkColor;
+    text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+li {
+    margin: 20px 0;
+}
+iframe {
+	border: 0;
+}
+fieldset {
+	border: none;
+}
+main {
+    max-width: $maxWidth;
+    margin: 0 auto;
+    padding: 32px 16px;
+}
+h1, h2, h3, h4, h5, h6 {
+	margin: 32px 0 16px;
+}
+p {
+    margin: 16px 0;
+    line-height: 1.4;
+}
+h1 {
+    font-size: 3em;
+    margin: 64px 0 32px;
+    font-weight: 900;
+}
+a + a {
+    margin-left: 20px;
+}
+pre {
+    padding: 24px !important;
+    overflow: scroll;
+}
+.highlight {
+    border-radius: 4px;
+    background-color: $backItem;
+    padding: 8px 24px;
+    margin: 16px 0;
 }

@@ -8,7 +8,8 @@ module.exports = {
   devtool: mode == 'prod' ? false : 'eval-cheap-module-source-map',
   entry: './bundle.js',
   output: {
-    path: path.resolve(__dirname, 'build')
+    filename: 'render.js',
+    path: path.resolve(__dirname, 'dist')
   },
   module: {
     rules: [
