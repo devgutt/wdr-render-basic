@@ -27,9 +27,9 @@ function renderItem(parent, key, value, level) {
                 if (typeof v == 'object') {
                     const sectionItem = el.create('div', {class: "highlight"});
                     el.append(section, sectionItem);
-                    renderItem(sectionItem, '', v, level);
+                    renderItem(sectionItem, key, v, level);
                 } else {
-                    renderItem(parent, '', v, level);
+                    renderItem(parent, key, v, level);
                 }
             })
 
@@ -55,10 +55,10 @@ function renderItem(parent, key, value, level) {
 
             if (key == 'title') {
                 el.append(parent, el.create(`h${level < 6 ? level : '6'}`, {innerHTML: textFormatting(value)}));
-            } else if (key == 'img') {
-                el.append(parent, el.create('img', {src: value}));
+            } else if (key == 'subtitle') {
+                el.append(parent, el.create('p', {class: "subtitle", innerHTML: textFormatting(value + "")}));
             } else if (key == 'code') {
-                el.append(parent, el.create('pre', {class: "highlight"}, value));
+                el.append(parent, el.create('pre', {}, value));
             } else {
                 el.append(parent, el.create('p', {innerHTML: textFormatting(value + "")}));
             }

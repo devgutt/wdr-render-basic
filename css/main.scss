@@ -81,9 +81,12 @@ pre {
     padding: 24px !important;
     overflow: scroll;
 }
-.highlight {
+pre, .highlight {
     border-radius: 4px;
     background-color: $backItem;
     padding: 8px 24px;
     margin: 16px 0;
+}
+.subtitle {
+    color: red;
 }

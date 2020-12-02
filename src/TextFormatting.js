@@ -5,7 +5,7 @@ function textFormatting(str) {
     if (str === undefined) return "";
     if (typeof str != 'string') return "";
 
-    const regTop = /(\*\*?|__?|~~|[<>\r\n])|\[([^[]*)\]\(([^(]*)\)/g;
+    const regTop = /(\*\*?|__?|~~|[<>\r\n])|\[([^[]*)\]\(([^(]*)\)|!\[([^[]*)\]\(([^(]*)\)/g;
 
     const closeTag = {};
     const renderTag = tag => {
@@ -18,7 +18,7 @@ function textFormatting(str) {
         }
     };
 
-    return str.replace(regTop, (m, cmd, linkName, linkUrl) => {
+    return str.replace(regTop, (m, cmd, linkName, linkUrl, imgAlt, imgPath) => {
 
         if (cmd) {
             if (cmd == '**' || cmd == '__') {
@@ -37,7 +37,9 @@ function textFormatting(str) {
                 return "";
             }
         } else if (linkName) {
-            return "<a href='" + linkUrl + "'>" + linkName + "</a>"
+            return `<a href='${linkUrl}'>${linkName}</a>`;
+        } else if (imgAlt) {
+            return `<img src='${imgPath}' alt='${imgAlt}'/>`;
         } else {
             return "";
         }
