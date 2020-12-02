@@ -54,9 +54,7 @@ function renderItem(parent, key, value, level) {
         } else {
 
             if (key == 'title') {
-                el.append(parent, el.create(`h${level < 6 ? level : '6'}`, {innerHTML: textFormatting(value)}));
-            } else if (key == 'code') {
-                el.append(parent, el.create('pre', {}, value));
+                el.append(parent, el.create(`h${level < 6 ? level : '6'}`, {innerHTML: textFormatting(value + "")}));
             } else {
                 el.append(parent, el.create('p', {innerHTML: textFormatting(value + "")}));
             }

@@ -87,4 +87,8 @@ pre, .highlight {
     padding: 8px 24px;
     margin: 16px 0;
 }
-
+code {
+    background: $backItem;
+    padding: 0px 2px;
+    border-radius: 3px;
+}
