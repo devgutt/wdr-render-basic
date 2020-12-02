@@ -5,7 +5,7 @@ function textFormatting(str) {
     if (str === undefined) return "";
     if (typeof str != 'string') return "";
 
-    const regTop = /(\*\*?|__?|~~|[<>\r\n])|\[([^[]*)\]\(([^(]*)\)|!\[([^[]*)\]\(([^(]*)\)|```([^`]*)```|````([^`]*)````/g;
+    const regTop = /(\*\*?|__?|~~|[<>\r\n])|\[([^[]*)\]\(([^(]*)\)|!\[([^[]*)\]\(([^(]*)\)|`([^`]+)`|```([^`]+)```/g;
 
     const closeTag = {};
     const renderTag = tag => {
