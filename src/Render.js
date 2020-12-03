@@ -11,8 +11,13 @@ function render(data) {
         el.create('title', {}, (data['#info'] && data['#info'].title) || (data['title']))
     ]);
 
+    if (data['#render'] && data['#render'].css) {
+        el.append(document.head, el.create('link', {rel: "stylesheet", href: data['#render'].css}) );
+    }
+
     const main = el.create('main', {});
     el.append(document.body, main);
+
     renderItem(main, '', data, 0);
 }
 
@@ -20,7 +25,7 @@ function renderItem(parent, key, value, level) {
 
         if (Array.isArray(value)) {
 
-            const section = el.create('div', {});
+            const section = el.create('div', {class: key});
             el.append(parent, section);
 
             value.forEach(v => {
@@ -29,7 +34,7 @@ function renderItem(parent, key, value, level) {
                     el.append(section, sectionItem);
                     renderItem(sectionItem, key, v, level);
                 } else {
-                    renderItem(parent, key, v, level);
+                    renderItem(section, null, v, level);
                 }
             })
 
@@ -37,10 +42,10 @@ function renderItem(parent, key, value, level) {
 
             let p = parent;
             if (level == 1) {
-                p = el.create('section', {});
+                p = el.create('section', {class: key});
                 el.append(parent, [ el.create('a', {name: key}, ""), p]);
             } else if (level > 1) {
-                p = el.create('div', {});
+                p = el.create('div', {class: key});
                 el.append(parent, p);
             }
 
@@ -53,11 +58,7 @@ function renderItem(parent, key, value, level) {
 
         } else {
 
-            if (key == 'title') {
-                el.append(parent, el.create(`h${level < 6 ? level : '6'}`, {innerHTML: textFormatting(value + "")}));
-            } else {
-                el.append(parent, el.create('p', {innerHTML: textFormatting(value + "")}));
-            }
+            el.append(parent, el.create('p', {class: key, innerHTML: textFormatting(value + "")}));
 
         }
 }

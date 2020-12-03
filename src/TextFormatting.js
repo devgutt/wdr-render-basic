@@ -5,7 +5,7 @@ function textFormatting(str) {
     if (str === undefined) return "";
     if (typeof str != 'string') return "";
 
-    const regTop = /(\*\*?|__?|~~|[<>\r\n])|\[([^[]*)\]\(([^(]*)\)|!\[([^[]*)\]\(([^(]*)\)|`([^`]+)`|```([^`]+)```/g;
+    const regTop = /(\*\*?|__?|~~|[<>\r\n])|\[([^[]*)\]\(([^(]*)\)|!\[([^[]*)\]\(([^(]*)\)|`([^`]+)`|```([^`]+)```|(#{1,6})\ (.*)/g;
 
     const closeTag = {};
     const renderTag = tag => {
@@ -18,7 +18,7 @@ function textFormatting(str) {
         }
     };
 
-    return str.replace(regTop, (m, cmd, linkName, linkUrl, imgAlt, imgPath, code, pre) => {
+    return str.replace(regTop, (m, cmd, linkName, linkUrl, imgAlt, imgPath, code, pre, titleNum, title) => {
 
         if (cmd) {
             if (cmd == '**' || cmd == '__') {
@@ -44,6 +44,8 @@ function textFormatting(str) {
             return `<code>${code}</code>`
         } else if (pre) {
             return `<pre>${pre}</pre>`
+        } else if (title) {
+            return `<h${titleNum.length}>${title}</h1>`
         } else {
             return "";
         }

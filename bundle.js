@@ -9,3 +9,4 @@ const render = require('./src/Render.js');
 loader(data => {
     render(data);
 });
+
