@@ -1,7 +1,6 @@
 /dist
-/examples
 /css
-bundle.js
+/bundle
 .babelrc
 .eslintrc.js
 webpack.config.js

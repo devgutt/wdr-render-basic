@@ -1,10 +1,9 @@
-$fontFamily: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
-$fontSize: 18px;
-$fontColor: #1A202C;
-$linkColor: #3c4fe0;
-$backColor: #ffffff;
-$backItem: rgba(0,0,0,0.05);
-$maxWidth: 800px;
+:root {
+    --font_color: #1A202C;
+    --link_color: #3c4fe0;
+    --back_item: rgba(0,0,0,0.05);
+    --max_width: 800px;
+}
 
 html {
 	box-sizing: border-box;
@@ -23,10 +22,10 @@ html {
 	text-size-adjust: 100%;
 }
 body {
-    font-size: $fontSize;
-    color: $fontColor;
+    font-size: 18px;
+    color: var(--font_color);
 	font-weight: 400;
-	background-color: $backColor;
+	background-color: #ffffff;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizeLegibility;
@@ -34,7 +33,7 @@ body {
     -webkit-tap-highlight-color: transparent;
 }
 body, button, input, select, textarea {
-	font-family: $fontFamily;
+	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
 }
 code, pre {
 	-moz-osx-font-smoothing: auto;
@@ -42,11 +41,11 @@ code, pre {
 	font-family: monospace;
 }
 a {
-    color: $linkColor;
+    color: var(--link_color);
     text-decoration: none;
-    &:hover {
-        text-decoration: underline;
-    }
+}
+a:hover {
+    text-decoration: underline;
 }
 li {
     margin: 20px 0;
@@ -58,7 +57,7 @@ fieldset {
 	border: none;
 }
 main {
-    max-width: $maxWidth;
+    max-width: var(--max_width);
     margin: 0 auto;
     padding: 32px 16px;
 }
@@ -83,12 +82,12 @@ pre {
 }
 pre, .highlight {
     border-radius: 4px;
-    background-color: $backItem;
+    background-color: var(--back_item);
     padding: 8px 24px;
     margin: 16px 0;
 }
 code {
-    background: $backItem;
+    background: var(--back_item);
     padding: 0px 2px;
     border-radius: 3px;
 }
