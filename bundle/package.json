@@ -1,6 +1,6 @@
 {
-  "name": "wdr-render-basic",
-  "version": "1.0.0",
+  "name": "wdr-render-basic-bundle",
+  "version": "1.0.1",
   "description": "WDR basic render bundle",
   "author": "Gustavo Pires",
   "repository": "https://github.com/webdatarender/wdr-render-basic.git",
@@ -15,7 +15,9 @@
   "dependencies": {
     "core-js": "^3.6.5",
     "es6-promise": "^4.2.8",
-    "regenerator-runtime": "^0.13.5"
+    "regenerator-runtime": "^0.13.5",
+    "wdr-loader": "^1.0.1",
+    "wdr-render-basic": "^1.0.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.1",
