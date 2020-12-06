@@ -13,9 +13,6 @@
     "prod": "NODE_ENV=prod webpack"
   },
   "dependencies": {
-    "core-js": "^3.6.5",
-    "es6-promise": "^4.2.8",
-    "regenerator-runtime": "^0.13.5",
     "wdr-loader": "^1.0.1",
     "wdr-render-basic": "^1.0.1"
   },
