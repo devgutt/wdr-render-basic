@@ -41,15 +41,19 @@ function textFormatting(str) {
         } else if (imgAlt) {
             return `<img src='${imgPath}' alt='${imgAlt}'/>`;
         } else if (code) {
-            return `<code>${code}</code>`
+            return `<code>${htmlEntities(code)}</code>`
         } else if (pre) {
-            return `<pre>${pre}</pre>`
+            return `<pre>${htmlEntities(pre)}</pre>`
         } else if (title) {
             return `<h${titleNum.length}>${title}</h1>`
         } else {
             return "";
         }
     })
+}
+
+function htmlEntities(str) {
+    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
 module.exports = textFormatting;
