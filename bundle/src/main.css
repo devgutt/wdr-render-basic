@@ -73,9 +73,6 @@ h1 {
     margin: 64px 0 32px;
     font-weight: 900;
 }
-a + a {
-    margin-left: 20px;
-}
 pre {
     padding: 24px !important;
     overflow: scroll;

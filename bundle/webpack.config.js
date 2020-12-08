@@ -5,7 +5,7 @@ const mode = process.env.NODE_ENV;
 
 let version = 'master';
 if (mode == 'prod') {
-  version = require('./package.json').version;
+  version = require('../package.json').version;
 }
 console.log('version:', version);
 
