@@ -8,7 +8,7 @@ function render(data) {
     el.append(document.head, [
         el.create('meta', {charset: "utf-8"}),
         el.create('meta', {name: "viewport", content: "width=device-width", 'initial-scale': 1}),
-        el.create('title', {}, (data['#info'] && data['#info'].title) || (data['title']))
+        el.create('title', {}, (data['#title'] || data['title']))
     ]);
 
     if (data['#render'] && data['#render'].css) {
@@ -58,7 +58,11 @@ function renderItem(parent, key, value, level) {
 
         } else {
 
-            el.append(parent, el.create('p', {class: key, innerHTML: textFormatting(value + "")}));
+            if (key == 'title') {
+                el.append(parent, el.create(`h${level < 6 ? level : '6'}`, {class: key, innerHTML: textFormatting(value + "")}));
+            } else {
+                el.append(parent, el.create('p', {class: key, innerHTML: textFormatting(value + "")}));
+            }
 
         }
 }
