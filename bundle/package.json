@@ -12,7 +12,11 @@
     "dev": "webpack",
     "prod": "NODE_ENV=prod webpack"
   },
+  "browserslist": [
+    "defaults"
+  ],
   "dependencies": {
+    "regenerator-runtime": "^0.13.7",
     "wdr-loader": "file:../../wdr-loader"
   },
   "devDependencies": {

@@ -1,3 +1,5 @@
+import 'regenerator-runtime/runtime';
+
 import loader from 'wdr-loader';
 
 const render = require("../../src/Render");
