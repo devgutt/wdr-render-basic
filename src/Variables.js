@@ -2,26 +2,30 @@
 
 function createVariables(defaultData) {
 
-    const data = {
+    const DATA = {
         _: defaultData
     }
 
     async function getData(key) {
 
         if (key) {
-            if (data[key] == undefined) {
-                console.log('NEW DATABASE --- ', key);
-
-                data[key] = fetch(key)
+            if (DATA[key] == undefined) {
+                DATA[key] = fetch(key)
                     .then(x => new Promise(resolve => setTimeout(() => resolve(x), Math.random()*10000)))
                     .then(r => r.json());
             }
-            return data[key];
+            return DATA[key];
 
         } else {
-            return data['_'];
+            return DATA['_'];
         }
 
+    }
+
+    async function getValue(url, path) {
+
+        const data = await getData(url);
+        return path.split(".").reduce((acc, cur) => acc[cur.trim()], data);
     }
 
     return {
@@ -43,10 +47,7 @@ function createVariables(defaultData) {
                 ret.push(str.slice(i, match.index));
 
                 try {
-                    const d = await getData(url);
-
-                    ret.push(`[[[${url || ""}@${path}]]]`);
-                    
+                    ret.push(await getValue(url, path));
                 } catch (error) {
                     ret.push(`[ERROR]`);
                 }

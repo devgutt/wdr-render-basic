@@ -1,11 +1,14 @@
 {
     "#title": "Source",
     "info": {
-        "#num": 42,
-        "#txt": "Universe"
+        "num": 42,
+        "txt": "Universe",
+        "nested": {
+            "hello": "world"
+        }
     },
     "main": [
-        "The number id **{{ info.#num }}** and the number again {{ info.#txt }}"
+        "The number id **{{ info.num }}** and the number again {{ info.txt }} in {{ info.nested.hello }}"
     ],
 
 

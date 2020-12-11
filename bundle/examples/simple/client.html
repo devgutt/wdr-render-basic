@@ -1,30 +1,39 @@
 {
     "#title": "Client",
     "info": {
-        "#num": 120,
-        "#txt": "ATOME"
+        "num": 120,
+        "txt": "ATOME"
     },
+    "tst": [
+        "The number id **{{ info.num }}** and the number again {{ info.txt }} and {{ info.txt.ttt.hello.opa }}"
+    ],
     "main": [
-        "The number id **{{ [/examples/simple/source.html] info.#num }}**",
-        "The number id **{{ info.#num }}** and the number again {{ info.#txt }}",
-        "The number id **{{ [/examples/simple/source.html] info.#txt }}** and \nthis is another {{ [/examples/simple/source.html] info.#txt }}",
-        "The number id **{{ [http://nn] info.#txt }}** this is another {{ [/examples/simple/source.html] info.#txt }}",
-        "The number id **{{ [http://nn] info.#txt }}** and the number again {{ info.#txt }}",
-        "The number id **{{ [/examples/simple/source.html] info.#loopa }}** and the number again {{ info.#txt }}",
-        "The number id **{{ [/examples/simple/source.html] info.#txt }}**",
-        "The number id **{{ [/examples/simple/index.html] info.#txt }}**",
-
+        "The number id **{{ [/examples/simple/source.html] info.num }}** and **{{ [/examples/simple/source.html] info.txt }}**",
+        "The number id **{{ info.num }}** and the number again {{ info.txt }}",
+        "The number id **{{ [/examples/simple/source.html] info.nested.hello }}**",
+        "WDR Title **{{ [https://webdatarender.com] #title }}**",
+        "WDR Last Update **{{ [https://webdatarender.com] updates.items.0.description }}**",
+        "WDR Last last Update **{{ [https://webdatarender.com] updates.items.1.description }}**",
+        "WDR Subscribe **{{ [https://webdatarender.com] subscribe }}**",
+        ""
+    ],
+    "#sec": [
+        "The number id **{{ [/examples/simple/source.html] info.txt }}** and \nthis is another {{ [/examples/simple/source.html] info.txt }}",
+        "The number id **{{ [http://nn] info.txt }}** this is another {{ [/examples/simple/source.html] info.txt }}",
+        "The number id **{{ [http://nn] info.txt }}** and the number again {{ info.txt }}",
+        "The number id **{{ [/examples/simple/source.html] info.#loopa }}** and the number again {{ info.txt }}",
+        "The number id **{{ [/examples/simple/source.html] info.txt }}**",
+        "The number id **{{ [/examples/simple/index.html] info.txt }}**",
         ""
     ],
     "#test": [
         "--------------------------------------------------",
-        "The number id **{{ info.#num }}**",
-        "The number id **{{info.#num}}**",
-        "The number id **{{   info.#num      }}**",
-        "The number id **{{ info.#num {{num}} }}**",
-        "The number id **{{ [/examples/simple/source.html]info.#num }}**",
-        "The number id **{{ [/examples/simple/source.html] info.#num }}**",
-
+        "The number id **{{ info.num }}**",
+        "The number id **{{info.num}}**",
+        "The number id **{{   info.num      }}**",
+        "The number id **{{ info.num {{num}} }}**",
+        "The number id **{{ [/examples/simple/source.html]info.num }}**",
+        "The number id **{{ [/examples/simple/source.html] info.num }}**",
         ""
     ],
 
