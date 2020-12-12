@@ -11,7 +11,8 @@ function createVariables(defaultData) {
         if (key) {
             if (DATA[key] == undefined) {
                 DATA[key] = fetch(key)
-                    .then(x => new Promise(resolve => setTimeout(() => resolve(x), Math.random()*10000)))
+                    // .then(x => new Promise(resolve => setTimeout(() => resolve(x), Math.random()*10000)))
+                    .then(x => new Promise(resolve => setTimeout(() => resolve(x), 500)))
                     .then(r => r.json());
             }
             return DATA[key];
@@ -25,7 +26,9 @@ function createVariables(defaultData) {
     async function getValue(url, path) {
 
         const data = await getData(url);
-        return path.split(".").reduce((acc, cur) => acc[cur.trim()], data);
+        const ret = path.split(".").reduce((acc, cur) => acc[(cur+"").trim()], data);
+        console.log(ret);
+        return ret;
     }
 
     return {
@@ -49,7 +52,7 @@ function createVariables(defaultData) {
                 try {
                     ret.push(await getValue(url, path));
                 } catch (error) {
-                    ret.push(`[ERROR]`);
+                    ret.push("[ERROR]");
                 }
 
                 i = reg.lastIndex;

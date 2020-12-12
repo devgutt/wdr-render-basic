@@ -36,7 +36,7 @@ function renderItem(parent, key, value, level) {
 
         value.forEach(v => {
             if (typeof v == 'object') {
-                const sectionItem = el.create('div', { class: "highlight" });
+                const sectionItem = el.create('div', {});
                 el.append(section, sectionItem);
                 renderItem(sectionItem, key, v, level);
             } else {

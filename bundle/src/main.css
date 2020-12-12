@@ -16,13 +16,13 @@ html, body {
 	box-sizing: inherit;
 }
 html {
+    font-size: 18px;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizeLegibility;
 	text-size-adjust: 100%;
 }
 body {
-    font-size: 18px;
     color: var(--font_color);
 	font-weight: 400;
 	background-color: #ffffff;
