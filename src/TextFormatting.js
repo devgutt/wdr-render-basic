@@ -36,8 +36,8 @@ function textFormatting(str) {
             } else {
                 return "";
             }
-        } else if (linkName) {
-            return `<a href='${linkUrl}'>${linkName}</a>`;
+        } else if (linkUrl) {
+            return `<a href='${linkUrl}'>${linkName || linkUrl}</a>`;
         } else if (imgAlt) {
             return `<img src='${imgPath}' alt='${imgAlt}'/>`;
         } else if (code) {
