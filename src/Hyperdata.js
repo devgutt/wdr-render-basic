@@ -1,6 +1,6 @@
 'use strict';
 
-function createVariables(defaultData) {
+function createInstance(defaultData) {
 
     const DATA = {
         _: defaultData
@@ -37,22 +37,27 @@ function createVariables(defaultData) {
         },
         process: async str => {
 
-            const reg = /{{\ *(?:\[([^{}]+)\]\ *)?([^{}]+)\ *}}/g;
+            const reg = /([\\]?){{\ *(?:\[([^{}]+)\]\ *)?([^{}]+)\ *}}/g;
 
             const ret = [];
             let match;
             let i = 0;
             while ((match = reg.exec(str)) !== null) {
 
-                const url = match[1];
-                const path = match[2];
+                const opr = match[1];
 
                 ret.push(str.slice(i, match.index));
 
-                try {
-                    ret.push(await getValue(url, path));
-                } catch (error) {
-                    ret.push("[ERROR]");
+                if (opr !== '\\') {
+                    const url = match[2];
+                    const path = match[3];
+                    try {
+                        ret.push(await getValue(url, path));
+                    } catch (error) {
+                        ret.push("[ERROR]");
+                    }
+                } else {
+                    ret.push((match[0] + "").slice(1));
                 }
 
                 i = reg.lastIndex;
@@ -64,5 +69,5 @@ function createVariables(defaultData) {
     }
 }
 
-module.exports = createVariables;
+module.exports = createInstance;
 
