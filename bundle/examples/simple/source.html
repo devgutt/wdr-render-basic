@@ -5,10 +5,20 @@
         "txt": "Universe",
         "nested": {
             "hello": "world"
-        }
+        },
+        "description": [
+            "#1 This is one text.",
+            "#2 This is another text.",
+            "#3 Paragraph 3."
+        ],
+        "test": "console.log('Hi')"
     },
     "main": [
-        "The number id **{{ info.num }}** and the number again {{ info.txt }} in {{ info.nested.hello }}"
+        "-----",
+        "The number id **{{ info.num }}** and the number again {{ info.txt }} in {{ info.nested.hello }}",
+        "one: {{info.description.1}}",
+        "All: {{info.description}}",
+        "All: {{info.test}}"
     ],
 
 

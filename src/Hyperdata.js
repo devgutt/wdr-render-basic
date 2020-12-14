@@ -11,8 +11,6 @@ function createInstance(defaultData) {
         if (key) {
             if (DATA[key] == undefined) {
                 DATA[key] = fetch(key)
-                    // .then(x => new Promise(resolve => setTimeout(() => resolve(x), Math.random()*10000)))
-                    .then(x => new Promise(resolve => setTimeout(() => resolve(x), 500)))
                     .then(r => r.json());
             }
             return DATA[key];
@@ -27,7 +25,6 @@ function createInstance(defaultData) {
 
         const data = await getData(url);
         const ret = path.split(".").reduce((acc, cur) => acc[(cur+"").trim()], data);
-        console.log(ret);
         return ret;
     }
 
