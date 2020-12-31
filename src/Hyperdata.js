@@ -1,6 +1,6 @@
 'use strict';
 
-async function processHyperData(dataManager, str) {
+async function processHyperdata(dataManager, str) {
     const reg = /([\\]?){{\ *(?:\[([^{}]+)\]\ *)?([^{}]+)\ *}}/g;
 
     const ret = [];
@@ -16,7 +16,7 @@ async function processHyperData(dataManager, str) {
             const url = match[2];
             const path = match[3];
             try {
-                ret.push(await dataManager.getValue(url, path));
+                ret.push(await getValue(dataManager, url, path));
             } catch (error) {
                 ret.push("[ERROR]");
             }
@@ -31,4 +31,11 @@ async function processHyperData(dataManager, str) {
     return ret.join("");
 }
 
-module.exports = processHyperData;
+async function getValue(dataManager, url, path) {
+
+    const data = url ? await dataManager.getDataUrl(url) : dataManager.data;
+    const ret = path.split(".").reduce((acc, cur) => acc[(cur+"").trim()], data);
+    return ret;
+}
+
+module.exports = processHyperdata;

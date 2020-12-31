@@ -1,12 +1,10 @@
 'use strict';
 
-function createDataManager(defaultData) {
+function createDataManager() {
 
-    const DATA = {
-        _: defaultData
-    }
+    const DATA = {}
 
-    async function getData(url) {
+    async function getDataUrl(url) {
 
         if (url) {
             if (DATA[url] == undefined) {
@@ -14,23 +12,12 @@ function createDataManager(defaultData) {
                     .then(r => r.json());
             }
             return DATA[url];
-
-        } else {
-            return DATA['_'];
         }
-
-    }
-
-    async function getValue(url, path) {
-
-        const data = await getData(url);
-        const ret = path.split(".").reduce((acc, cur) => acc[(cur+"").trim()], data);
-        return ret;
     }
 
     return {
-        getData: getData,
-        getValue: getValue
+        getDataUrl: getDataUrl
     }
 }
 
+module.exports = createDataManager;

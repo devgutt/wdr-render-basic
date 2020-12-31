@@ -1,5 +1,10 @@
+const el = require('./src/Elements');
+
 module.exports = {
-    render : require('./src/Render.js'),
-    el : require('./src/Elements.js'),
-    textFormatting : require('./src/TextFormatting.js')
+    createDataManager : require('./src/DataManager'),
+    createElement: el.createElement,
+    appendElement: el.appendElement,
+    loadScript: el.loadScript,
+    textFormatting : require('./src/TextFormatting'),
+    processHyperdata: require('./src/Hyperdata')
 }

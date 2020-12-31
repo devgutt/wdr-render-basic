@@ -40,7 +40,7 @@ function createElementDoc(type) {
     }
 }
 
-function append(parent, children) {
+function appendElement(parent, children) {
     if (Array.isArray(children)) {
         children.forEach(item => {
             item && parent.appendChild(item);
@@ -60,7 +60,7 @@ function loadScript(url, onload) {
 }
 
 module.exports = {
-    create: createElement,
-    append: append,
-    loadScript: loadScript
+    createElement,
+    appendElement,
+    loadScript
 }
