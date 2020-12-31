@@ -3,13 +3,14 @@
 const el = require('./Elements.js');
 const textFormatting = require('./TextFormatting.js');
 
-const createInstance = require('./Hyperdata.js');
+const createDataManager = require('./DataManager.js');
+const processHyperData = require('./Hyperdata.js');
 
-let hyperdata;
+let dataManager;
 
 function render(data) {
 
-    hyperdata = createInstance(data);
+    dataManager = createDataManager(data);
 
     el.append(document.head, [
         el.create('meta', { charset: "utf-8" }),
@@ -85,8 +86,8 @@ function setValue(el, str) {
     if (!str.includes('{{')) {
         el.innerHTML = textFormatting(str)
     } else {
-        el.innerHTML = textFormatting(hyperdata.replace(str, "..."))
-        hyperdata.process(str)
+        el.innerHTML = textFormatting(str.replace(/{{[^{}]+}}/g, "..."));
+        processHyperData(dataManager, str)
             .then(s => el.innerHTML = textFormatting(s))
             .catch(error => {
                 console.error(error);

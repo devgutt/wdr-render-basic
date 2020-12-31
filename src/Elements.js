@@ -50,7 +50,17 @@ function append(parent, children) {
     }
 }
 
+function loadScript(url, onload) {
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.async = true;
+    document.head.appendChild(script);
+    script.onload = onload;
+    script.src = url;
+}
+
 module.exports = {
     create: createElement,
-    append: append
+    append: append,
+    loadScript: loadScript
 }
