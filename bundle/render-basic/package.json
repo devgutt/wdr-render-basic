@@ -17,8 +17,8 @@
   ],
   "dependencies": {
     "regenerator-runtime": "^0.13.7",
-    "wdr-loader": "file:../../wdr-loader",
-    "wdr-render-basic": "file:.."
+    "wdr-loader": "^1.0.2",
+    "wdr-render-basic": "file:../.."
   },
   "devDependencies": {
     "@babel/cli": "^7.10.1",

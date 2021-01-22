@@ -72,7 +72,6 @@ function renderItem(dataManager, parent, key, value, level) {
             render.appendElement(parent, e);
 
             setValue(dataManager, e, value + "");
-
         }
 
     }
@@ -83,7 +82,7 @@ function setValue(dataManager, el, str) {
         el.innerHTML = render.textFormatting(str)
     } else {
         el.innerHTML = render.textFormatting(str.replace(/{{[^{}]+}}/g, "..."));
-        render.processHyperData(dataManager, str)
+        render.processHyperdata(dataManager, str)
             .then(s => el.innerHTML = render.textFormatting(s))
             .catch(error => {
                 console.error(error);

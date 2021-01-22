@@ -1,6 +1,6 @@
 'use strict';
 
-function createDataManager() {
+function createDataManager(data) {
 
     const DATA = {}
 
@@ -16,7 +16,8 @@ function createDataManager() {
     }
 
     return {
-        getDataUrl: getDataUrl
+        data,
+        getDataUrl
     }
 }
 

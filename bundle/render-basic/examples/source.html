@@ -7,8 +7,8 @@
             "hello": "world"
         },
         "description": [
-            "#1 This is one text.",
-            "#2 This is another text.",
+            "#1 This is **one** text.",
+            "#2 This is *another* text.",
             "#3 Paragraph 3."
         ],
         "test": "console.log('Hi')"
@@ -18,12 +18,15 @@
         "The number id **{{ info.num }}** and the number again {{ info.txt }} in {{ info.nested.hello }}",
         "one: {{info.description.1}}",
         "All: {{info.description}}",
-        "All: {{info.test}}"
+        "All: {{info.test}}",
+        "Version is {{ [https://webdatarender.com/basic-render.html] install.#version }}",
+        "Title: {{ [https://evaluatly.com] hero.title }}",
+        "Title: {{ [https://evaluatly.com] hero.description }}"
     ],
 
 
     "#render": {
-        "_": "<html hidden><script src=/dist/render-basic-master.js></script></html><noscript><style>html{display:block !important; white-space:pre}</style></noscript>",
+        "_": "<html hidden><script src=/dist/render-basic-dev.js></script></html><noscript><style>html{display:block !important; white-space:pre}</style></noscript>",
         "css": "css/main.css"
     }
 }

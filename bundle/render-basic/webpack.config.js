@@ -5,7 +5,7 @@ const mode = process.env.NODE_ENV;
 
 let version = 'master';
 if (mode == 'prod') {
-  version = require('../package.json').version;
+  version = require('../../package.json').version;
 }
 console.log('version:', version);
 
@@ -14,7 +14,7 @@ module.exports = {
   devtool: mode == 'prod' ? false : 'eval-cheap-module-source-map',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: `render-basic-${version}.js`
+    filename: `render-basic-${mode == 'prod' ? version : 'dev'}.js`
   },
   module: {
     rules: [
