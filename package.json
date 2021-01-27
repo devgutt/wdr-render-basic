@@ -3,6 +3,7 @@
   "version": "1.2.0",
   "description": "WDR basic render",
   "author": "Gustavo Pires",
+  "main": "./index.js",
   "repository": "https://github.com/webdatarender/wdr-render-basic.git",
   "bugs": "https://github.com/webdatarender/wdr-render-basic/issues",
   "homepage": "https://webdatarender.com",
