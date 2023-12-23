@@ -1,4 +1,4 @@
 # Basic Render
 
-Read the documentation at WDR website: https://webdatarender.com/basic-render.html
+Read the documentation at WDR website: https://devgutt.github.io/wdr/basic-render.html
 
